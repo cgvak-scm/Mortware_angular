@@ -1,0 +1,202 @@
+<app-navbar></app-navbar>
+<div class="main-content d-flex justify-content-start align-items-stretch">
+<app-sidebar></app-sidebar>
+
+  <div>
+     
+<kendo-grid
+[kendoGridBinding]="gridData"
+kendoGridSelectBy="id"
+[(selectedKeys)]="mySelection"
+[pageSize]="20"
+[pageable]="true"
+[sortable]="true"
+[groupable]="true"
+[reorderable]="true"
+[resizable]="true"
+[height]="500"
+[columnMenu]="{ filter: true }"
+>
+
+
+<kendo-grid-column-group title="Atneeds" [columnMenu]="false">
+    <kendo-grid-column field="atneedId" title="AN Number" [width]="130">
+    </kendo-grid-column>
+    <kendo-grid-column field="preneedId" title="PN Number" [width]="130">
+    </kendo-grid-column>
+    <kendo-grid-column field="alternateId" title="Alternate ID" [width]="130">
+    </kendo-grid-column>
+    <kendo-grid-column field="lastName1" title="Last Name" [width]="130">
+    </kendo-grid-column>
+    <kendo-grid-column field="name1" title="First Name" [width]="130">
+    </kendo-grid-column>
+    <kendo-grid-column field="city" title="City" [width]="130">
+    </kendo-grid-column>
+    <kendo-grid-column field="state" title="State" [width]="130">
+    </kendo-grid-column>
+    <kendo-grid-column field="entryDate" title="Entry Date" [width]="130">
+    </kendo-grid-column>
+    <kendo-grid-column field="deathDate" title="Death Date" [width]="130">
+    </kendo-grid-column>
+    <kendo-grid-column field="arStatus" title="Ar Status" [width]="130">
+    </kendo-grid-column>
+
+    <!-- <kendo-grid-column field="contactsId" title="contactsId" [width]="130">
+    </kendo-grid-column>
+   
+   
+    
+    <kendo-grid-column field="deathLocation" title="deathLocation" [width]="130">
+    </kendo-grid-column>
+    <kendo-grid-column field="funeralType" title="funeralType" [width]="130">
+    </kendo-grid-column>
+    <kendo-grid-column field="title" title="title" [width]="130">
+    </kendo-grid-column>
+    <kendo-grid-column field="gender" title="gender" [width]="130">
+    </kendo-grid-column>
+    <kendo-grid-column field="email" title="email" [width]="130">
+    </kendo-grid-column>
+    <kendo-grid-column field="addressType" title="addressType" [width]="130">
+    </kendo-grid-column>
+  
+    <kendo-grid-column field="address1" title="address1" [width]="130">
+    </kendo-grid-column>
+    <kendo-grid-column field="phone" title="Phone" [width]="130">
+    </kendo-grid-column>
+   
+    <kendo-grid-column field="balance" title="balance" [width]="130">
+    </kendo-grid-column> -->
+  
+</kendo-grid-column-group>
+
+</kendo-grid>
+<div class="bottom-toolbar">
+    <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+        <div class="input-group input-group-sm gap-2">
+            <select class="form-select height-sm" aria-label="Default select example">
+                <option selected>All Atneeds</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+            </select>
+            <div class="input-group d-flex justify-content-between input-group-sm height-sm">
+                <input type=" text " class="form-control " placeholder="Search by table content" aria-label="Search by table content " aria-describedby="basic-addon2 ">
+                <span class="input-group-text " id="basic-addon2 "><i class="bi bi-search"></i></span>
+            </div>
+            <div class="input-group input-group-sm">
+                <button type="button" class="btn btn-primary">Advanced Search</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="bottom-Tabs">
+    <div class="page-heading">
+        <h4>Summary Details</h4>
+    </div>
+    <div class="main-tabs">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="tab-1" data-bs-toggle="tab" data-bs-target="#Case-Information" type="button" role="tab" aria-controls="Case-Information" aria-selected="true">Case Information</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="tab-2" data-bs-toggle="tab" data-bs-target="#Case-Notes" type="button" role="tab" aria-controls="profile" aria-selected="false">Case Notes</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="tab-3" data-bs-toggle="tab" data-bs-target="#Contractees" type="button" role="tab" aria-controls="contact" aria-selected="false">Contractees</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="tab-4" data-bs-toggle="tab" data-bs-target="#Lot-Information" type="button" role="tab" aria-controls="profile" aria-selected="false">Lot Information</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="tab-5" data-bs-toggle="tab" data-bs-target="#Transactions" type="button" role="tab" aria-controls="contact" aria-selected="false">AR Transactions</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="tab-6" data-bs-toggle="tab" data-bs-target="#Events" type="button" role="tab" aria-controls="profile" aria-selected="false">Events</button>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="Case-Information" role="tabpanel" aria-labelledby="tab-1">
+                <div class="d-flex justify-content-start">
+                    <div class="w-50">
+                        <div class="read-form-items">
+                            <div class="read-form-label">Full Name</div>
+                            <div class="read-form-value">Robert Wolsey</div>
+                        </div>
+                    </div>
+                    <div class="w-50">
+                        <div class="read-form-items">
+                            <div class="read-form-label">Address</div>
+                            <div class="read-form-value">Lorem Ipsum is simply dummy text of the printing.</div>
+                        </div>
+                    </div>
+                    <div class="w-50">
+                        <div class="read-form-items">
+                            <div class="read-form-label">Director</div>
+                            <div class="read-form-value">Mrs. Debra Stephenson</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-start">
+                    <div class="w-50 d-flex  justify-content-start gap-4">
+                        <div class="read-form-items">
+                            <div class="read-form-label">Birth Date</div>
+                            <div class="read-form-value">1/9/2000 5:30 PM</div>
+                        </div>
+                        <div class="read-form-items">
+                            <div class="read-form-label">Age</div>
+                            <div class="read-form-value">22 Years</div>
+                        </div>
+                    </div>
+                    <div class="w-50">
+                        <div class="read-form-items">
+                            <div class="read-form-label">Death Date</div>
+                            <div class="read-form-value">1/9/2022 5:30 PM</div>
+                        </div>
+                    </div>
+                    <div class="w-50">
+                        <div class="read-form-items">
+                            <div class="read-form-label">Package</div>
+                            <div class="read-form-value">No Package</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-start">
+                    <div class="w-50">
+                        <div class="read-form-items">
+                            <div class="read-form-label">Phone</div>
+                            <div class="read-form-value">+1-202-555-0163</div>
+                        </div>
+                    </div>
+                    <div class="w-50">
+                        <div class="read-form-items">
+                            <div class="read-form-label">Death Location</div>
+                            <div class="read-form-value">Philsdelphia</div>
+                        </div>
+                    </div>
+                    <div class="w-50">
+                        <div class="read-form-items">
+                            <div class="read-form-label">Disposition Date</div>
+                            <div class="read-form-value">1/9/2022 5:30 PM</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-start">
+                    <div class="w-50">
+                        <div class="read-form-items">
+                            <div class="read-form-label">Disposition Location</div>
+                            <div class="read-form-value">Philsdelphia</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="Case-Notes" role="tabpanel" aria-labelledby="tab-2">...</div>
+            <div class="tab-pane fade" id="Contractees" role="tabpanel" aria-labelledby="tab-3">...</div>
+            <div class="tab-pane fade" id="Lot-Information" role="tabpanel" aria-labelledby="tab-4">...</div>
+            <div class="tab-pane fade" id="Transactions" role="tabpanel" aria-labelledby="tab-5">...</div>
+            <div class="tab-pane fade" id="Events" role="tabpanel" aria-labelledby="tab-6">...</div>
+        </div>
+    </div>
+</div>
+</div>
+</div>

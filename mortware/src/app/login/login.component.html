@@ -1,0 +1,54 @@
+
+    <div class="login-bg">
+        <div class="login-wraper d-flex justify-content-center align-items-center">
+            <div class="login-form">
+                <div class="hstack gap-5 justify-content-between">
+                    <div class="d-flex align-items-start flex-column align-self-stretch w-50 full-width">
+                        <div class="mb-auto p-2 m-auto">
+                            <a href="#" class="logo"><img src="./assets/images/logo.png" alt="Mortware Logo" /></a>
+                        </div>
+                        <div class="p-2 mx-auto">
+                            <span class="copyrights">Copyrights © 2022 Belmar and Associates</span>
+                        </div>
+                    </div>
+                    <div class="vr flex-shrink-1 hide-content"></div>
+                    <div class="d-flex align-items-start flex-column align-self-stretch w-50 full-width">
+                        <div class="row g-3 needs-validation" >
+                            <div class="col-12">
+                                <h4 class="d-flex justify-content-center align-items-center">Login Information</h4>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">User Name</label>
+                                <input type="text" class="form-control" [(ngModel)]="username"
+                                placeholder="User Name"/>
+                            </div>
+                            <div class="col-md-12">
+                                <label class="form-label">Password</label>
+                                <input type="text" class="form-control" [(ngModel)]="password"
+                                placeholder="password"/>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Language</label>
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected>English</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+                            <div class="invalid-feedback">
+                                Please Enter Required Fields.
+                            </div>
+
+                            <div class="col-12 d-flex justify-content-end">
+                                <button (click)="restData()" type="button" class="btn btn-outline-secondary btn-sm c-reset">Reset</button>
+                                <button (click)="onSubmit()" class="btn btn-primary btn-sm c-login" type="submit">Login</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>

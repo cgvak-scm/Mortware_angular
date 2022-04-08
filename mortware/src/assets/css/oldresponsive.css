@@ -1,0 +1,22 @@
+@media (max-width: 1200px) {
+    .login-wraper {
+        height: auto;
+        padding-top: 24px;
+        padding-bottom: 24px;
+    }
+    .login-form {
+        width: 85%;
+    }
+}
+
+@media (max-width: 576px) {
+    .login-form .hstack {
+        flex-flow: column-reverse;
+    }
+    .full-width {
+        width: 100% !important;
+    }
+    .hide-content {
+        display: none;
+    }
+}

@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+.login-bg {
+    background: url(../images/login-bg.jpg) no-repeat center center fixed;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    overflow: auto;
+}
+
+.login-wraper {
+    height: 100vh;
+}
+
+.login-form {
+    background-color: #fdfdfdf7;
+    width: 65%;
+    padding: 24px;
+    border-radius: 4px;
+    box-shadow: 1px 0px 12px 6px #00000030;
+    border: 1px solid #00000012;
+}
+
+.login-form .form-label {
+    color: #747577;
+    font-weight: 300;
+    margin-bottom: 4px;
+}
+
+.c-reset {
+    border-color: #000;
+    margin-right: 8px;
+}
+
+.c-reset,
+.c-login {
+    border-radius: 0px;
+}
+
+.invalid-feedback {
+    display: block;
+    font-style: italic;
+    margin-top: 24px;
+}
+
+.copyrights {
+    font-weight: 300;
+    color: #000;
+    font-size: 14px;
+}
+
+.logo {
+    display: block;
+}
+
+.logo img {
+    max-width: 100%;
+}
+
+.strock-light {
+    background-color: #000;
+    opacity: 0.1;
+}
+
+.main-platform {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.header-icons a {
+    display: block;
+    width: 24px;
+    height: 24px;
+    color: #000000b8;
+    text-align: center;
+}
+
+.profile-image {
+    width: 22px;
+    height: 22px;
+    border: 1px solid #dede;
+    border-radius: 100%;
+    overflow: hidden;
+    line-height: 12px;
+}
+
+.dropdown-toggle::after {
+    vertical-align: middle;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+}
+
+.custom-nav-icon {
+    margin-right: 8px;
+}
+
+.main-nav-bg {
+    background-color: #1A9BFB;
+}
+
+.main-nav-bg.navbar-light .navbar-nav .nav-link {
+    color: #fff;
+}
+
+.main-content {
+    overflow: auto;
+}
+
+#treeview {
+    margin: 8px 12px;
+    padding: 0px;
+}
+
+.hummingbird-treeview a,
+.hummingbird-treeview a * {
+    font-size: 14px;
+    color: #0000008f !important;
+    text-decoration: none;
+}
+
+.hummingbird-treeview .parent-tree-lable a,
+.hummingbird-treeview .active-tree-label a,
+.hummingbird-treeview .parent-tree-lable span,
+.hummingbird-treeview .active-tree-label span {
+    color: #000000 !important;
+    font-weight: 700;
+}
+
+.tree-arrow-size {
+    width: 16px;
+    height: 24px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 8px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.tree-icon-size {
+    margin-right: 4px;
+    font-size: 14px;
+}
+
+.single-tree-node {
+    margin-left: 28px;
+}
+
+.custom-left-nave {
+    border-right: 1px solid rgba(0, 0, 0, .125) !important;
+}
+
+.table-content {
+    padding: 12px;
+    overflow: hidden;
+}
+
+.breadcrumb-item.active {
+    color: #000000;
+}
+
+.breadcrumb-item a {
+    color: #00000094;
+    text-decoration: none;
+}
+
+.breadcrumb-item a:hover {
+    color: #000000;
+}
+
+.main-table .table {
+    border: 1px solid #00000024;
+    font-size: 14px;
+    margin-bottom: 0px;
+}
+
+.main-table {
+    height: 50vh;
+    overflow: auto;
+}
+
+.table>:not(:first-child) {
+    border: 1px solid #00000024;
+}
+
+.table>:not(caption)>*>* {
+    border-bottom-width: 0px;
+}
+
+.bottom-toolbar .btn {
+    border: 0px;
+    margin: 4px 4px !important;
+}
+
+.height-sm {
+    height: 29px;
+    margin-top: 4px;
+}
+
+.bottom-toolbar {
+    border: 1px solid #00000024;
+    border-top: 0px;
+    padding: 4px;
+}
+
+.bottom-Tabs {
+    margin-top: 24px;
+}
+
+.tab-content {
+    border: 1px solid #dee2e6;
+    border-top: 0px;
+    padding: 16px;
+}
+
+.read-form-label {
+    font-size: 14px;
+    font-weight: 300;
+    color: #747577;
+}
+
+.read-form-value {
+    color: #000;
+    font-size: 14px;
+}
+
+.read-form-items {
+    margin-bottom: 24px;
+}
+
+.accordion-item:last-of-type {
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+.left-nav-show-hide {
+    display: none;
+}
+
+.main-table .active {
+    background-color: #1a9bfb54;
+}
