@@ -1,0 +1,161 @@
+<section  >
+    <div class="container">
+        <div class="row">
+            <div class="col"></div>
+                <table class="table table-hover text-center table-stripped">
+                    <thead>
+                   
+                        <th  >name</th>
+                        <th  >email</th>
+                        <th  >phone</th>
+                        <th  >location</th>
+                        
+                    </thead>
+                     <tbody>
+                         <tr *ngFor="let company of companys" (click)="selectcompany(company)">
+                            <td>{{company.companyId}}</td>
+                            <td>{{company.nameOfficial}}</td>
+                            <td>{{company.nameShort}}</td>
+                            <td>{{company.email1}}</td>
+                            <td>{{company.email2}}</td>
+                         </tr>
+                     </tbody>
+                </table>
+
+        </div>
+    </div>
+</section>
+
+<pre>{{company  | json}}</pre>
+<section>
+    <div class="container">
+        <div  class="row">
+            <div  class="col-md-6">
+                <div class="card">
+                    <div class="card-header bg-secondary text-white">
+                        <p class="h4">user registration</p>
+                    </div>
+                    <div class="card-body">
+                        <form  [formGroup]="companyForm" >
+                            <div class="mb-2">
+                                <input formControlName="companyId" type="number" class="form-control" placeholder="companyId" >
+
+
+                            </div>
+                            <div class="mb-2">
+                         
+                                <input type="number" class="form-control" placeholder="closeImage" formControlName="closeImage" >
+
+                            </div>
+                            <div class="mb-2">
+                                <input type="text" class="form-control" placeholder="companyAddressId" formControlName="companyAddressId" >
+
+                            </div>
+                             
+                            <div class="mb-2">
+                                <textarea type="text" class="form-control" placeholder="controllingPerson" formControlName="controllingPerson" ></textarea>
+
+                            </div>
+
+                            <div class="mb-2">
+                                <textarea type="text" class="form-control" placeholder="currency1" formControlName="currency1" ></textarea>
+
+                            </div>
+
+                            <div class="mb-2">
+                                <textarea type="text" class="form-control" placeholder="currency2" formControlName="currency2" ></textarea>
+
+                            </div>
+
+                            <div class="mb-2">
+                                <textarea type="text" class="form-control" placeholder="email1" formControlName="email1"  ></textarea>
+
+                            </div>
+
+                            <div class="mb-2">
+                                <textarea type="text" class="form-control" placeholder="email2" formControlName="email2"  ></textarea>
+
+                            </div>
+
+                            <div class="mb-2">
+                                <textarea type="text" class="form-control" placeholder="employerIdentificationNumber" formControlName="employerIdentificationNumber"  ></textarea>
+
+                            </div>
+
+                            <div class="mb-2">
+                                <textarea type="text" class="form-control" placeholder="nameOfficial" formControlName="nameOfficial"  ></textarea>
+
+                            </div>
+
+                            <div class="mb-2">
+                                <input type="checkbox" class="form-check-input"   formControlName="mail" >Mail
+
+                            </div>
+
+                            <div class="mb-2">
+                                <textarea type="text" class="form-control" placeholder="nameShort" formControlName="nameShort"  ></textarea>
+
+                            </div>
+
+                            <div class="mb-2">
+                                <textarea type="text" class="form-control" placeholder="nodeKey" formControlName="nodeKey"  ></textarea>
+
+                            </div>
+
+                            <div class="mb-2">
+                                <input type="number" class="form-control" placeholder="openImage" formControlName="openImage"  >
+
+                            </div>
+
+                            <div class="mb-2">
+                                <textarea type="text" class="form-control" placeholder="phone" formControlName="phone"  ></textarea>
+
+                            </div>
+
+                            <div class="mb-2">
+                                <textarea type="text" class="form-control" placeholder="phone2" formControlName="phone2"  ></textarea>
+
+                            </div>
+
+                            <div class="mb-2">
+                             
+                                <input type="number" class="form-control" placeholder="rateCur1toCur2" formControlName="rateCur1toCur2"  >
+
+                            </div>
+
+                            <div class="mb-2">
+                                <textarea type="text" class="form-control" placeholder="rateCur1toCur2" formControlName="rateCur1toCur2"  ></textarea>
+
+                            </div>
+
+                            
+                            <div class="mb-2">
+                                <textarea type="text" class="form-control" placeholder="website" formControlName="website"  ></textarea>
+
+                            </div> 
+
+                           
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-buttons">
+            
+                                        <a href="javascript:void(0);"  ><span><i
+                                                    class="fa fa-floppy-o" (click)="onSave()"></i></span>Save</a>
+                                        <a href="javascript:void(0);"><span><i
+                                                    class="fa fa-floppy-o"></i></span>Update</a>
+                                        <a href="javascript:void(0);" ><span><i
+                                                    class="fa fa-refresh"></i></span>Reset</a>
+                                        <a href="javascript:void(0);"  ><span><i
+                                                    class="fa fa-refresh"></i></span>Delete</a>
+                                    </div>
+                                </div>
+                            </div>
+                       
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
