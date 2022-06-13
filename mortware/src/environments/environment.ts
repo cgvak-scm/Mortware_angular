@@ -2,10 +2,38 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-export const environment = {
-  production: false,
-  apiUrl: 'http://localhost:57712/api/'
-};
+// export const environment = {
+//   production: true,
+//    //apiUrl: 'http://localhost:57712/api/',
+//    //local iis
+//    // apiUrl: 'http://172.16.20.219:8093/api/',
+//    //public url
+//    apiUrl: 'http://136.232.210.42:8093/api/',
+  
+//    //js call
+//   jsPath:'/assets/js/script.js',
+
+// };
+
+import { DynamicEnvironment } from './dynamic-environment';
+
+// This file can be replaced during build by using the `fileReplacements` array.
+// `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
+// The list of file replacements can be found in `angular.json`.
+
+class Environment extends DynamicEnvironment {
+
+  public production: boolean;
+  
+  constructor() {
+    super();
+    this.production = true;
+    //js call
+   //jsPath='/assets/js/script.js';
+  }
+}
+
+export const environment = new Environment();
 
 /*
  * For easier debugging in development mode, you can import the following file

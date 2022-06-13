@@ -1,6 +1,5 @@
 @media (max-width: 1200px) {
     .login-wraper {
-        height: auto;
         padding-top: 24px;
         padding-bottom: 24px;
     }
@@ -37,19 +36,45 @@
     .left-nav-show-hide {
         display: block;
         padding: 4px 8px;
-        position: absolute;
+        position: relative;
         z-index: 99;
         cursor: pointer;
+        margin: 0;
     }
     .custom-left-nave {
-        position: absolute;
+        position: fixed;
         width: 50% !important;
         margin-top: 39px;
         display: none;
-        z-index: 99;
+        z-index: 999;
+        top: 0;
+        left: -50%;
+        height: 100vh;
+        overflow: auto;
+        margin-top: 0 !important;
+        margin-left: 0;
+        background: #fff;
+        transition: all 0.3s ease;
+    }
+    .custom-left-nave.show{
+        left: 0% !important;
     }
     .table-content {
         padding-top: 32px;
+    }
+    .mob-close{
+        display: flex;
+        justify-content: flex-end;
+        padding: 15px;
+    }
+    .mob-close a{
+        width: 20px;
+        height: 20px;
+        font-size: 20px;
+        display: inline-block;
+    }
+    .main-content.d-flex{
+        flex-direction: column;
     }
 }
 
@@ -63,8 +88,5 @@
     .hide-content {
         display: none;
     }
-    .custom-left-nave {
-        width: 80% !important;
-        overflow: hidden;
-    }
+ 
 }
