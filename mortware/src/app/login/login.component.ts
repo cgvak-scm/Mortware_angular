@@ -38,18 +38,15 @@ export class LoginComponent implements OnInit {
 get f() { return this.loginForm.controls; }
 
   onSubmit(){
-    debugger
     this.authenticationService.login(this.username,
         this.password)
         .subscribe({
             next: response => {
-              debugger
-
               if(response.succeeded){
                 this.router.navigate(['/dashboard']);
               }
             else{
-              this.toastr.error('Error', response.message);
+              this.toastr.error( response.message,'Error');
             }
           }
           });

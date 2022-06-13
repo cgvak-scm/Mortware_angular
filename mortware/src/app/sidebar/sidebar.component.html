@@ -1,34 +1,55 @@
-<div class="custom-left-nave" style="width: 300px;">
+<style>
+     .custom-left-nave.collapse.show{
+        left: 0% !important;
+    }
+    #left-nav.collapse.show{
+        left: 0%!important;
+    }
+
+    .custom-left-nave.collapse{
+        display: block !important;
+    }
+</style>
+<div class="custom-left-nave" id="left-nav" style="width: 300px;">
+    <div class="mob-close">
+        <a data-bs-toggle="collapse" data-bs-target="#left-nav"><i class="bi bi-x-square-fill"></i></a>
+    </div>
     <div class="accordion" id="accordionPanelsStayOpenExample">
         <div class="accordion-item">
             <h2 class="accordion-header" id="panelsStayOpen-headingOne">
                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-                    Explorer
+                    <img src="assets/images/new/Explorer321.png" width="20px" /> Explorer
             </button>
             </h2>
            <body>
-            <kendo-treeview
-            [nodes]="data"
-            textField="text"
-            kendoTreeViewHierarchyBinding
-            childrenField="items"
-            [filterable]="false"
-            kendoTreeViewExpandable
-            [expandedKeys]="expandedKeys"
-            
-            >
-            </kendo-treeview>
+       <kendo-treeview
+        [nodes]="data"
+        textField="text"
+        [hasChildren]="hasChildren"
+        [children]="fetchChildren"
+
+        kendoTreeViewExpandable
+        [(expandedKeys)]="expandedKeys"
+        class="treeview-scroll"
+        >
+        <!-- load data with icon -->
+        <ng-template kendoTreeViewNodeTemplate let-dataItem>
+            <span class="menuIcon test"><img src='{{ "assets/images/new/"+ dataItem.imgpath }}'></span>
+            <span (click)="dataclick(dataItem)"> {{dataItem.text}}</span>
+        </ng-template>
+
+    </kendo-treeview>
                 
             </body>
          
         </div>
         <div class="accordion-item">
             <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-                    Buttons
+                <button class="accordion-button collapsed" (click)="dataclick(null)" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                    <img src="assets/images/new/Button Trio.png" class="mr-5" width="20px" />Buttons
             </button>
             </h2>
-            <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+            <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"  aria-labelledby="panelsStayOpen-headingTwo">
                 <div class="accordion-body">
                     Respective navigation items will come here.
                 </div>
@@ -36,8 +57,8 @@
         </div>
         <div class="accordion-item">
             <h2 class="accordion-header" id="panelsStayOpen-headingThree">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
-                    Dashboard
+                <button class="accordion-button collapsed" (click)="dataclick(null)" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+                    <img src="assets/images/new/Button 32.png" class="mr-5" width="20px" />Dashboard
             </button>
             </h2>
             <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
@@ -48,11 +69,7 @@
         </div>
     </div>
 </div>
-<div class="left-nav-show-hide"><i class="bi bi-list"></i> Left Navigation</div>
-<script>
-    $(document).ready(function() {
-        $(".left-nav-show-hide").click(function() {
-            $(".custom-left-nave").toggle();
-        });
-    });
-</script>
+<div class="left-nav-show-hide" data-bs-toggle="collapse" data-bs-target="#left-nav"><i class="bi bi-list" ></i> Left Navigation</div>
+
+
+

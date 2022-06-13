@@ -1,0 +1,80 @@
+.k-grid td.k-state-selected, .k-grid tr.k-state-selected > td{
+    background-color: transparent !important;
+}
+kendo-dropdownlist {
+    width: 170px;
+    height: 30px;
+}
+/*.dis-dropdown kendo-dropdownlist{
+    width: 550px !important;
+}*/
+
+.btn-space kendo-dropdownlist{
+    width: 100px !important;
+    height: 30px !important;
+}
+
+/*Media query*/
+@media(min-width: 1920px){
+    .dis-dropdown kendo-dropdownlist{
+        width: 920px !important;
+    }
+}
+
+/* @media(max-width: 1199px){
+    .dis-dropdown kendo-dropdownlist{
+        width: 450px !important;
+    }
+} */
+@media(max-width: 991px){
+    .dropdown-btn-alignment {
+        margin: 5px 0px 0px 0px;
+    }
+}
+@media(max-width: 767px){
+    .dropdown-btn-alignment {
+        margin: 5px 0px 0px 0px;
+    }
+    .pagination-dropdown kendo-dropdownlist[_ngcontent-kry-c17] {
+        width: 73px !important;
+    }
+}
+/* @media screen and (min-device-width: 1199px) and (max-device-width: 1512px) { 
+    .dis-dropdown kendo-dropdownlist{
+        width: 400px !important;
+    }
+} */
+@media screen and (min-device-width: 1385px) and (max-device-width: 1919px) { 
+    .dis-dropdown kendo-dropdownlist{
+        width: 400px !important;
+    }
+}
+@media screen and (min-device-width: 1384px) and (max-device-width: 1513px) { 
+    .dis-dropdown kendo-dropdownlist{
+        width: 300px !important;
+    }
+}
+@media screen and (min-device-width: 1363px) and (max-device-width: 1199px) { 
+    .dis-dropdown kendo-dropdownlist{
+        width: 100px !important;
+    }
+}
+
+
+
+@media screen and (min-device-width: 700px) and (max-device-width: 1132px) { 
+    .dis-dropdown kendo-dropdownlist{
+        width: 400px !important;
+    }
+    .dropdown-btn-alignment {
+        margin: 5px 0px 0px 0px;
+    }
+}
+@media screen and (min-device-width: 320px) and (max-device-width: 513px) { 
+    .input-group.input-group-sm.gap-2.pagination-dropdown {
+        margin: 5px 0px 0px 0px;
+    }
+    .btn-space kendo-dropdownlist{
+        width: 73px !important;
+    }
+}

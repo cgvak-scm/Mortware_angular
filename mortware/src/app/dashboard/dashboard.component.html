@@ -1,100 +1,102 @@
 <app-navbar></app-navbar>
 <div class="main-content d-flex justify-content-start align-items-stretch">
 <app-sidebar></app-sidebar>
-
-  <div>
-     
-<kendo-grid
-[kendoGridBinding]="gridData"
-kendoGridSelectBy="id"
-[(selectedKeys)]="mySelection"
-[pageSize]="20"
-[pageable]="true"
-[sortable]="true"
-[groupable]="true"
-[reorderable]="true"
-[resizable]="true"
-[height]="500"
-[columnMenu]="{ filter: true }"
->
-
-
-<kendo-grid-column-group title="Atneeds" [columnMenu]="false">
-    <kendo-grid-column field="atneedId" title="AN Number" [width]="130">
-    </kendo-grid-column>
-    <kendo-grid-column field="preneedId" title="PN Number" [width]="130">
-    </kendo-grid-column>
-    <kendo-grid-column field="alternateId" title="Alternate ID" [width]="130">
-    </kendo-grid-column>
-    <kendo-grid-column field="lastName1" title="Last Name" [width]="130">
-    </kendo-grid-column>
-    <kendo-grid-column field="name1" title="First Name" [width]="130">
-    </kendo-grid-column>
-    <kendo-grid-column field="city" title="City" [width]="130">
-    </kendo-grid-column>
-    <kendo-grid-column field="state" title="State" [width]="130">
-    </kendo-grid-column>
-    <kendo-grid-column field="entryDate" title="Entry Date" [width]="130">
-    </kendo-grid-column>
-    <kendo-grid-column field="deathDate" title="Death Date" [width]="130">
-    </kendo-grid-column>
-    <kendo-grid-column field="arStatus" title="Ar Status" [width]="130">
-    </kendo-grid-column>
-
-    <!-- <kendo-grid-column field="contactsId" title="contactsId" [width]="130">
-    </kendo-grid-column>
-   
-   
-    
-    <kendo-grid-column field="deathLocation" title="deathLocation" [width]="130">
-    </kendo-grid-column>
-    <kendo-grid-column field="funeralType" title="funeralType" [width]="130">
-    </kendo-grid-column>
-    <kendo-grid-column field="title" title="title" [width]="130">
-    </kendo-grid-column>
-    <kendo-grid-column field="gender" title="gender" [width]="130">
-    </kendo-grid-column>
-    <kendo-grid-column field="email" title="email" [width]="130">
-    </kendo-grid-column>
-    <kendo-grid-column field="addressType" title="addressType" [width]="130">
-    </kendo-grid-column>
-  
-    <kendo-grid-column field="address1" title="address1" [width]="130">
-    </kendo-grid-column>
-    <kendo-grid-column field="phone" title="Phone" [width]="130">
-    </kendo-grid-column>
-   
-    <kendo-grid-column field="balance" title="balance" [width]="130">
-    </kendo-grid-column> -->
-  
-</kendo-grid-column-group>
-
-</kendo-grid>
+<div class="main-heading" *ngIf="!isAtneeds && !isPreneeds">Under Construction !...</div>
+  <div class="main-content" *ngIf="isAtneeds || isPreneeds">
+     <div class="main-heading">{{main_title}}</div>
+    <kendo-grid
+    [kendoGridBinding]="gridData" 
+    [pageSize]="pageSize"
+    [pageable]="true"
+    [skip]="skip"
+    [height]="420" 
+    [columnMenu]="{ filter: true }"
+    (selectionChange)="gridUserSelectionChange(gridData, $event)"
+    (pageChange)="pageChange($event)"
+    [selectable]="true"   
+    >
+    <!--kendoGridSelectBy="id"-->
+    <!-- Grid Cols Definition  -->
+     <!-- Grid Cols Definition  -->
+       <!-- Grid Cols Definition  -->
+         <!-- Grid Cols Definition  -->
+    <kendo-grid-column-group title="Cases" [columnMenu]="false">
+        <kendo-grid-column field="atneedId" title="AN Number" [width]="100">
+        </kendo-grid-column>
+        <kendo-grid-column field="preneedId" title="PN Number" [width]="100">
+        </kendo-grid-column>
+        <kendo-grid-column field="alternateId" title="Alternate ID" [width]="100">
+        </kendo-grid-column>
+        <kendo-grid-column field="lastName1" title="Last Name" [width]="100">
+        </kendo-grid-column>
+        <kendo-grid-column field="name1" title="First Name" [width]="100">
+        </kendo-grid-column>
+        <kendo-grid-column field="city" title="City" [width]="100">
+        </kendo-grid-column>
+        <kendo-grid-column field="state" title="State" [width]="100">
+        </kendo-grid-column>
+        <kendo-grid-column field="entryDate" title="Entry Date" [width]="150">
+        </kendo-grid-column>
+        <kendo-grid-column field="deathDate" title="Death Date" [width]="150">
+        </kendo-grid-column>
+        <kendo-grid-column field="arStatus" title="AR Status" [width]="150">
+        </kendo-grid-column>  
+    </kendo-grid-column-group>
+    </kendo-grid>
 <div class="bottom-toolbar">
-    <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
-        <div class="input-group input-group-sm gap-2">
-            <select class="form-select height-sm" aria-label="Default select example">
-                <option selected>All Atneeds</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-            </select>
-            <div class="input-group d-flex justify-content-between input-group-sm height-sm">
-                <input type=" text " class="form-control " placeholder="Search by table content" aria-label="Search by table content " aria-describedby="basic-addon2 ">
-                <span class="input-group-text " id="basic-addon2 "><i class="bi bi-search"></i></span>
+    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+        <div class="dashboard-search">
+            <button type="button" class="btn btn-primary"> Search</button>
+            <!-- Display DropDown-->
+            <div class="input-group input-group-sm gap-2 dis-dropdown">
+                <p class="centerptag">Display:</p>
+                <kendo-dropdownlist
+                [data]="DisplayList"
+                [(ngModel)]="selectedValue"
+                (valueChange)="handleDisplayChange($event)"
+            ></kendo-dropdownlist>
             </div>
-            <div class="input-group input-group-sm">
-                <button type="button" class="btn btn-primary">Advanced Search</button>
-            </div>
+        </div>
+<!-- Pagination  -->
 
+        <div class="btn-toolbar justify-content-between dropdown-btn-alignment" role="toolbar" aria-label="Toolbar with button groups">
+            <div class="btn-field">
+
+                <div class="btn-space">
+                    <kendo-dropdownlist
+                    [data]="DisplayList"
+                    [(ngModel)]="addValue"
+                    (valueChange)="handleDisplayChange($event)"
+                    >Add</kendo-dropdownlist>
+                </div>
+    
+                <div class="btn-space">
+                    <kendo-dropdownlist
+                    [data]="DisplayList"
+                    [(ngModel)]="editValue"
+                    (valueChange)="handleDisplayChange($event)"
+                    >Edit</kendo-dropdownlist>
+                </div>
+    
+                <button type="button" class="btn btn-delete btn-space">Delete</button>
+            </div>
+            <div class="input-group input-group-sm gap-2 pagination-dropdown">
+                <kendo-dropdownlist
+                [data]="pagesizelist" 
+                [(ngModel)]="selectedSizeValue"
+                (valueChange)="handleCategoryChange($event)"
+                ></kendo-dropdownlist>
+            </div>
         </div>
     </div>
 </div>
+
+<!-- Summary Details Tab -->
 <div class="bottom-Tabs">
     <div class="page-heading">
         <h4>Summary Details</h4>
     </div>
-    <div class="main-tabs">
+    <div class="main-tabs"> 
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
                 <button class="nav-link active" id="tab-1" data-bs-toggle="tab" data-bs-target="#Case-Information" type="button" role="tab" aria-controls="Case-Information" aria-selected="true">Case Information</button>
@@ -118,85 +120,174 @@ kendoGridSelectBy="id"
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="Case-Information" role="tabpanel" aria-labelledby="tab-1">
                 <div class="d-flex justify-content-start">
-                    <div class="w-50">
-                        <div class="read-form-items">
-                            <div class="read-form-label">Full Name</div>
-                            <div class="read-form-value">Robert Wolsey</div>
-                        </div>
-                    </div>
-                    <div class="w-50">
-                        <div class="read-form-items">
-                            <div class="read-form-label">Address</div>
-                            <div class="read-form-value">Lorem Ipsum is simply dummy text of the printing.</div>
-                        </div>
-                    </div>
-                    <div class="w-50">
-                        <div class="read-form-items">
-                            <div class="read-form-label">Director</div>
-                            <div class="read-form-value">Mrs. Debra Stephenson</div>
-                        </div>
-                    </div>
+                    <div class="col-12 col-md-6 col-xs-12">
+                        <div class="example-col">
+                           <label [for]="textbox">First Name</label>
+                           <kendo-textbox #textbox [style.width.px]="350" [(ngModel)]="firstName"></kendo-textbox> 
+                       </div> 
+                       <div class="example-col">
+                           <label [for]="textbox">Birth Date</label>
+                           <kendo-textbox #textbox [style.width.px]="350" [(ngModel)]="birthDate"></kendo-textbox> 
+                       </div>
+                       <div class="example-col">
+                           <label [for]="textbox">Age</label>
+                           <kendo-textbox #textbox [style.width.px]="350" [(ngModel)]="age"></kendo-textbox> 
+                       </div>
+                       <div class="example-col">
+                           <label [for]="textbox">Phone</label>
+                           <kendo-textbox #textbox [style.width.px]="350" [(ngModel)]="phone"></kendo-textbox> 
+                       </div>
+                       <div class="example-col">
+                           <label [for]="textbox">Address</label>
+                           <kendo-textbox #textbox [style.width.px]="350" [style.height.px]="60" [(ngModel)]="address"></kendo-textbox> 
+                           <!-- <textarea _ngcontent-elw-c17="" rows="2" cols="22">                    
+                           </textarea> -->
+                       </div>
+                   
+                       <div class="col-xs-12 example-col">
+                           <label [for]="textbox">Director: </label>
+                           <kendo-textbox #textbox [style.width.px]="350" [(ngModel)]="director"></kendo-textbox> 
+                       </div>
+                   
+               </div>
+               <div class="col-md-6">
+                   <div class="example-col">
+                       <label [for]="textbox">Package </label>
+                       <kendo-textbox #textbox [style.width.px]="350" [(ngModel)]="package"></kendo-textbox> 
+                   </div>
+                   <div class="example-col">
+                       <label [for]="textbox">Disposition Location </label>
+                       <kendo-textbox #textbox [style.width.px]="350" [style.height.px]="90" [(ngModel)]="dispositonLocation"></kendo-textbox> 
+                   </div>
+                   <div class="example-col">
+                       <label [for]="textbox">Disposition Date </label>
+                       <kendo-textbox #textbox [style.width.px]="350" [(ngModel)]="dispositonDate"></kendo-textbox> 
+                   </div>
+                   <div class="example-col">
+                       <label [for]="textbox">Death Date </label>
+                       <kendo-textbox #textbox [style.width.px]="350" [(ngModel)]="deathDate"></kendo-textbox> 
+                   </div>
+                   <div class="example-col">
+                       <label [for]="textbox">Death Location </label>
+                       <kendo-textbox #textbox [style.width.px]="350" [(ngModel)]="deathLocation"></kendo-textbox> 
+                   </div>
+               </div>
                 </div>
-                <div class="d-flex justify-content-start">
-                    <div class="w-50 d-flex  justify-content-start gap-4">
-                        <div class="read-form-items">
-                            <div class="read-form-label">Birth Date</div>
-                            <div class="read-form-value">1/9/2000 5:30 PM</div>
-                        </div>
-                        <div class="read-form-items">
-                            <div class="read-form-label">Age</div>
-                            <div class="read-form-value">22 Years</div>
-                        </div>
-                    </div>
-                    <div class="w-50">
-                        <div class="read-form-items">
-                            <div class="read-form-label">Death Date</div>
-                            <div class="read-form-value">1/9/2022 5:30 PM</div>
-                        </div>
-                    </div>
-                    <div class="w-50">
-                        <div class="read-form-items">
-                            <div class="read-form-label">Package</div>
-                            <div class="read-form-value">No Package</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="d-flex justify-content-start">
-                    <div class="w-50">
-                        <div class="read-form-items">
-                            <div class="read-form-label">Phone</div>
-                            <div class="read-form-value">+1-202-555-0163</div>
-                        </div>
-                    </div>
-                    <div class="w-50">
-                        <div class="read-form-items">
-                            <div class="read-form-label">Death Location</div>
-                            <div class="read-form-value">Philsdelphia</div>
-                        </div>
-                    </div>
-                    <div class="w-50">
-                        <div class="read-form-items">
-                            <div class="read-form-label">Disposition Date</div>
-                            <div class="read-form-value">1/9/2022 5:30 PM</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="d-flex justify-content-start">
-                    <div class="w-50">
-                        <div class="read-form-items">
-                            <div class="read-form-label">Disposition Location</div>
-                            <div class="read-form-value">Philsdelphia</div>
-                        </div>
-                    </div>
-                </div>
+               
+                
+                
             </div>
-            <div class="tab-pane fade" id="Case-Notes" role="tabpanel" aria-labelledby="tab-2">...</div>
-            <div class="tab-pane fade" id="Contractees" role="tabpanel" aria-labelledby="tab-3">...</div>
-            <div class="tab-pane fade" id="Lot-Information" role="tabpanel" aria-labelledby="tab-4">...</div>
-            <div class="tab-pane fade" id="Transactions" role="tabpanel" aria-labelledby="tab-5">...</div>
-            <div class="tab-pane fade" id="Events" role="tabpanel" aria-labelledby="tab-6">...</div>
+            <div class="tab-pane fade" id="Case-Notes" role="tabpanel" aria-labelledby="tab-2">
+                <textarea  rows="4" cols="50">
+                    {{caseNotes}}
+                </textarea>
+            </div>
+            <div class="tab-pane fade" id="Contractees" role="tabpanel" aria-labelledby="tab-3">
+                <kendo-grid 
+                [kendoGridBinding]="Contractees"
+                class="table-info"
+                >
+
+                <kendo-grid-column-group >
+                    <kendo-grid-column field="fullname" title="Name" [width]="130">
+                    </kendo-grid-column>
+                    <kendo-grid-column field="phone"  title="Phone" [width]="130">
+                    </kendo-grid-column>
+                    <kendo-grid-column field="city" title="City" [width]="130">
+                    </kendo-grid-column>
+                    <kendo-grid-column field="balance" title="Balance" [width]="130">
+                    </kendo-grid-column>
+                  
+                </kendo-grid-column-group>
+            </kendo-grid>
+            
         </div>
-    </div>
+        <div class="tab-pane fade" id="Lot-Information" role="tabpanel" aria-labelledby="tab-4">
+            <kendo-grid  
+            [kendoGridBinding]="Lot"
+            >
+            <kendo-grid-column-group >
+               
+                <kendo-grid-column  field="graveID" title="GraveID" [width]="130">
+                </kendo-grid-column>
+                <kendo-grid-column  field="deed"  title="Deed" [width]="130">
+                </kendo-grid-column>
+                <kendo-grid-column  field="location"  title="Location" [width]="130">
+                </kendo-grid-column>
+                <kendo-grid-column  field="owner"  title="Owner" [width]="130">
+                </kendo-grid-column>
+                <kendo-grid-column  field="occupant" title="Occupant" [width]="130">
+                </kendo-grid-column>
+                <kendo-grid-column  field="occId" title="OccID" [width]="130">
+                </kendo-grid-column>
+                <kendo-grid-column  field="ownId"  title="OwnID" [width]="130">
+                </kendo-grid-column>
+              
+            </kendo-grid-column-group>
+            </kendo-grid>
+            <button type="button" class="btn btn-primary btn-infomation"> Grave Info</button>
+        </div>
+        <div class="tab-pane fade" id="Transactions" role="tabpanel" aria-labelledby="tab-5">
+            <kendo-grid  
+            [kendoGridBinding]="Transactions"
+            >
+            <kendo-grid-column-group >
+                <kendo-grid-column field="date" title="Date">
+                </kendo-grid-column>
+                <kendo-grid-column field="balance" title="Type">
+                </kendo-grid-column>
+                <kendo-grid-column field="Number" title="Number">
+                </kendo-grid-column>
+                <kendo-grid-column field="respParty" title="Party">
+                </kendo-grid-column>
+                <kendo-grid-column field="debit" title="Debit">
+                </kendo-grid-column>
+                <kendo-grid-column  field="credit" title="Credit">
+                </kendo-grid-column>
+                <kendo-grid-column field="outstanding" title="Outstanding">
+                </kendo-grid-column>
+                <kendo-grid-column  field="glaccount" title="GLAccount">
+                </kendo-grid-column>
+                <kendo-grid-column  field="description" title="Description">
+                </kendo-grid-column>
+              
+            </kendo-grid-column-group>
+        </kendo-grid>
+        </div>
+        <div class="tab-pane fade" id="Events" role="tabpanel" aria-labelledby="tab-6">
+            <kendo-grid  
+            [kendoGridBinding]="Events"
+            kendoGridSelectBy="id"
+            >
+
+            <kendo-grid-column-group >
+                <kendo-grid-column field="servicesID" title="ServicesID">
+                </kendo-grid-column>
+                <kendo-grid-column field="type" title="Type">
+                </kendo-grid-column>
+                <kendo-grid-column field="subject" title="Subject">
+                </kendo-grid-column>
+                <kendo-grid-column field="startDateTime" title="SubjectStartDate">
+                </kendo-grid-column>
+                <kendo-grid-column field="endDateTime" title="SubjectEndDate">
+                </kendo-grid-column>
+                <kendo-grid-column field="done" title="Done">
+                </kendo-grid-column>
+                <kendo-grid-column field="description" title="Description">
+                </kendo-grid-column>
+              
+            </kendo-grid-column-group>
+        </kendo-grid>
+        </div>
+    </div> 
+</div>
+
 </div>
 </div>
-</div>
+
+<script>
+    $(".k-grid-table tr").click(function(){
+        $(".k-grid-table tr").removeClass("active");
+        $(this).addClass("active");
+    });
+</script>
